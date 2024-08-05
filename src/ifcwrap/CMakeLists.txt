@@ -111,17 +111,6 @@ IF((PYTHONINTERP_FOUND AND NOT "${PYTHON_EXECUTABLE}" STREQUAL "") OR PYTHON_MOD
     IF("${python_package_dir}" STREQUAL "")
         MESSAGE(WARNING "Unable to locate Python site-package directory, unable to install the Python wrapper")
     ELSE()
-        FILE(GLOB_RECURSE sourcefiles 
-            "${CMAKE_CURRENT_SOURCE_DIR}/../ifcopenshell-python/ifcopenshell/*"
-        )
-        FOREACH(file ${sourcefiles})
-            FILE(RELATIVE_PATH relative "${CMAKE_CURRENT_SOURCE_DIR}/../ifcopenshell-python/ifcopenshell/" "${file}")
-            GET_FILENAME_COMPONENT(dir "${relative}" DIRECTORY)
-            if(NOT IS_DIRECTORY "${file}")
-			    INSTALL(FILES "${file}"
-                        DESTINATION "${python_package_dir}/ifcopenshell/${dir}")
-            endif()
-        ENDFOREACH()
         INSTALL(FILES "${CMAKE_BINARY_DIR}/ifcwrap/ifcopenshell_wrapper.py"
                 DESTINATION "${python_package_dir}/ifcopenshell")
         INSTALL(TARGETS ${SWIG_MODULE_ifcopenshell_wrapper_REAL_NAME}
