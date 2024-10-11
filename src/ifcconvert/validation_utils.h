@@ -222,16 +222,16 @@ struct remove_thickness {
 			tree.all_intersections(ray, std::back_inserter(intersections));
 			double N = std::numeric_limits<double>::infinity();
 			Point P;
-			for (auto& intersection : intersections) {
-				if (boost::get<Point>(&(intersection->first))) {
-					const Point* p = boost::get<Point>(&(intersection->first));
-					const double d = std::sqrt(CGAL::to_double((*p - O).squared_length()));
-					if (d > 1.e-20 && d < N) {
-						N = d;
-					}
-				}
-			}
-			if (N != std::numeric_limits<double>::infinity() && N > 1.e-4) {
+            // for (auto& intersection : intersections) {
+            // 	if (boost::get<Point>(&(intersection->first))) {
+            // 		const Point* p = boost::get<Point>(&(intersection->first));
+            // 		const double d = std::sqrt(CGAL::to_double((*p - O).squared_length()));
+            // 		if (d > 1.e-20 && d < N) {
+            // 			N = d;
+            // 		}
+            // 	}
+            // }
+            if (N != std::numeric_limits<double>::infinity() && N > 1.e-4) {
 				thin_sides.insert(f);
 			}
 		}
@@ -353,18 +353,18 @@ struct remove_thickness {
 			bool used_intersection = false;
 
 			if (intersections.size()) {
-				for (auto& intersection : intersections) {
-					if (boost::get<Point>(&(intersection->first))) {
-						const Point* p = boost::get<Point>(&(intersection->first));
-						const double d = std::sqrt(CGAL::to_double((*p - O).squared_length()));
-						if (d < N && d > 1.e-20) {
-							N = d;
-							P = *p;
-							std::wcout << "intersection @ " << d << std::endl;
-						}
-					}
-				}
-				std::wcout << "-----------" << std::endl;
+                // for (auto& intersection : intersections) {
+                // 	if (boost::get<Point>(&(intersection->first))) {
+                // 		const Point* p = boost::get<Point>(&(intersection->first));
+                // 		const double d = std::sqrt(CGAL::to_double((*p - O).squared_length()));
+                // 		if (d < N && d > 1.e-20) {
+                // 			N = d;
+                // 			P = *p;
+                // 			std::wcout << "intersection @ " << d << std::endl;
+                // 		}
+                // 	}
+                // }
+                std::wcout << "-----------" << std::endl;
 
 				// average the new point
 				new_points[O] = CGAL::ORIGIN + (((O - CGAL::ORIGIN) + (P - CGAL::ORIGIN))) / 2;
