@@ -194,18 +194,6 @@ IF(Python_Interpreter_FOUND OR PYTHON_MODULE_INSTALL_DIR)
     IF("${python_package_dir}" STREQUAL "")
         MESSAGE(WARNING "Unable to locate Python site-package directory, unable to install the Python wrapper")
     ELSE()
-        message(STATUS "Python wrapper will be installed to '${python_package_dir}'.")
-        FILE(GLOB_RECURSE sourcefiles
-            "${CMAKE_CURRENT_SOURCE_DIR}/../ifcopenshell-python/ifcopenshell/*"
-        )
-        FOREACH(file ${sourcefiles})
-            FILE(RELATIVE_PATH relative "${CMAKE_CURRENT_SOURCE_DIR}/../ifcopenshell-python/ifcopenshell/" "${file}")
-            GET_FILENAME_COMPONENT(dir "${relative}" DIRECTORY)
-            if(NOT IS_DIRECTORY "${file}")
-			    INSTALL(FILES "${file}"
-                        DESTINATION "${python_package_dir}/ifcopenshell/${dir}")
-            endif()
-        ENDFOREACH()
         INSTALL(FILES "${CMAKE_BINARY_DIR}/ifcwrap/ifcopenshell_wrapper.py"
                 DESTINATION "${python_package_dir}/ifcopenshell")
         INSTALL(TARGETS ifcopenshell_wrapper
