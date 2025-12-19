@@ -42,7 +42,7 @@ if(NOT OpenCOLLADA_DIR)
     if("${OPENCOLLADA_LIBRARY_DIR}" STREQUAL "")
         message(STATUS "No OpenCOLLADA library directory specified")
         find_library(OPENCOLLADA_FRAMEWORK_LIB NAMES OpenCOLLADAFramework
-            PATHS /usr/lib64/opencollada /usr/lib/opencollada /usr/lib64 /usr/lib /usr/local/lib64 /usr/local/lib)
+            PATHS /usr/lib/opencollada /usr/lib64/opencollada /usr/lib64 /usr/lib /usr/local/lib64 /usr/local/lib)
         get_filename_component(OPENCOLLADA_LIBRARY_DIR ${OPENCOLLADA_FRAMEWORK_LIB} PATH)
     endif()
 
