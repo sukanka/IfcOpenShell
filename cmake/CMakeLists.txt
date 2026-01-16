@@ -122,6 +122,11 @@ set(PYTHON_MODULE_INSTALL_DIR
     CACHE PATH
     "Directory to install IfcPython package to. By default package is installed in found Python's site-packages."
 )
+set(INSTALL_PYTHON_WRAPPERS
+    OFF
+    CACHE BOOL
+    "Install IfcPython wrapper modules."
+)
 
 # Make sure CMake modules in this project are found first
 list(PREPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
