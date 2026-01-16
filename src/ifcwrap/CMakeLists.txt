@@ -142,7 +142,7 @@ endif()
 target_link_libraries(ifcopenshell_wrapper PRIVATE ${CGAL_LIBRARIES})
 target_link_libraries(ifcopenshell_wrapper PRIVATE IfcGeom ${kernel_libraries})
 if((NOT WIN32) AND BUILD_SHARED_LIBS)
-    SET_INSTALL_RPATHS(ifcopenshell_wrapper "${IFCDIRS};${OCC_LIBRARY_DIR}")
+    SET_INSTALL_RPATHS(ifcopenshell_wrapper "${OCC_LIBRARY_DIR}")
 endif()
 
 # Try to find the Python interpreter to get the site-packages
