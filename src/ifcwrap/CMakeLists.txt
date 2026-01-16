@@ -184,6 +184,7 @@ if(Python_Interpreter_FOUND OR PYTHON_MODULE_INSTALL_DIR)
     if("${python_package_dir}" STREQUAL "")
         message(WARNING "Unable to locate Python site-package directory, unable to install the Python wrapper")
     else()
+        if (INSTALL_PYTHON_WRAPPER)
         message(STATUS "Python wrapper will be installed to '${python_package_dir}'.")
         file(GLOB_RECURSE sourcefiles "${CMAKE_CURRENT_SOURCE_DIR}/../ifcopenshell-python/ifcopenshell/*")
         foreach(file ${sourcefiles})
@@ -193,6 +194,7 @@ if(Python_Interpreter_FOUND OR PYTHON_MODULE_INSTALL_DIR)
                 install(FILES "${file}" DESTINATION "${python_package_dir}/ifcopenshell/${dir}")
             endif()
         endforeach()
+        endif()
         install(
             FILES "${CMAKE_BINARY_DIR}/ifcwrap/ifcopenshell_wrapper.py"
             DESTINATION "${python_package_dir}/ifcopenshell"
