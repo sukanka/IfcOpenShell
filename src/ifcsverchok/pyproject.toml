@@ -1,5 +1,14 @@
+[tool.setuptools.packages.find]
+include = ["nodes*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
 [tool.ruff]
 extend = "../../pyproject.toml"
 lint.select = [
   "F401",  # unused imports
 ]
+[project]
+name = "ifcsverchok"
+version = "0.0.0"
