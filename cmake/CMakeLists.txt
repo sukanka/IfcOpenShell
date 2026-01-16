@@ -315,7 +315,6 @@ else()
     # @todo review this, shouldn't this be all possible header-only now?
     # ... or rewritten using C++17 features?
     set(BOOST_COMPONENTS
-        system
         program_options
         regex
         thread
