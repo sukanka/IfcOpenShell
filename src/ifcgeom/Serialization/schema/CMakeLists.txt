@@ -1,5 +1,5 @@
 foreach(schema ${SCHEMA_VERSIONS})
-    add_library(geometry_serializer_ifc${schema} STATIC Serialization.cpp)
+    add_library(geometry_serializer_ifc${schema} Serialization.cpp)
     target_link_libraries(geometry_serializer_ifc${schema} ${OpenCASCADE_LIBRARIES})
     set_target_properties(
         geometry_serializer_ifc${schema}
@@ -7,4 +7,3 @@ foreach(schema ${SCHEMA_VERSIONS})
     )
     list(APPEND geometry_serializer_libraries geometry_serializer_ifc${schema})
 endforeach()
-set(geometry_serializer_libraries ${geometry_serializer_libraries} PARENT_SCOPE)
