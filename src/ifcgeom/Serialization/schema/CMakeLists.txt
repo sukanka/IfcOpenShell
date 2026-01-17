@@ -7,3 +7,5 @@ foreach(schema ${SCHEMA_VERSIONS})
     )
     list(APPEND geometry_serializer_libraries geometry_serializer_ifc${schema})
 endforeach()
+
+set(geometry_serializer_libraries ${geometry_serializer_libraries} PARENT_SCOPE)
