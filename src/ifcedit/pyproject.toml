@@ -13,8 +13,8 @@ readme = "README.md"
 keywords = ["IFC", "BIM", "API"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
 ]
+license = "LGPL-3.0-or-later"
 dependencies = ["ifcopenshell", "ifc5d"]
 
 [project.scripts]

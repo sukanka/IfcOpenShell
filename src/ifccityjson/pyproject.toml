@@ -14,8 +14,8 @@ readme = "README.md"
 keywords = ["IFC", "CityJSON", "BIM"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
 ]
+license = "LGPL-3.0-or-later"
 dependencies = [
     "ifcopenshell",
     "cjio >=0.8, <0.10"
