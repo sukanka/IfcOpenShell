@@ -146,6 +146,11 @@ set(
     "" CACHE PATH
     "Directory to install IfcPython package to. By default package is installed in found Python's site-packages."
 )
+set(INSTALL_PYTHON_WRAPPERS
+    OFF
+    CACHE BOOL
+    "Install IfcPython source modules."
+)
 
 project(IfcOpenShell VERSION ${PROJECT_VERSION_NUMERIC})
 
